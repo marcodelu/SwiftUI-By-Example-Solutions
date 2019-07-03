@@ -9,32 +9,28 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State private var scale: Length = 1.0
-
     var body: some View {
-        Image("example-image")
-            .scaleEffect(scale)
+        NavigationView {
+            NavigationLink(destination: DetailView()) {
+                Text("Hello World")
+            }
+        }.onAppear {
+            print("ContentView appeared!")
+        }.onDisappear {
+            print("ContentView disappeared!")
+        }
+    }
+}
 
-            .gesture(
-                TapGesture()
-                    .onEnded { _ in
-                        self.scale += 0.1
-                }
-            )
-            .gesture(
-                LongPressGesture(minimumDuration: 2)
-                    .onEnded { _ in
-                        print("Pressed!")
-                        self.scale -= 0.1
-                }
-            )
-            .gesture(
-                DragGesture(minimumDistance: 50)
-                    .onEnded { _ in
-                        print("Dragged!")
-                        self.scale = 1.0
-                }
-            )
+struct DetailView : View {
+    var body: some View {
+        VStack {
+            Text("Second View")
+        }.onAppear {
+            print("DetailView appeared!")
+        }.onDisappear {
+            print("DetailView disappeared!")
+        }
     }
 }
 
