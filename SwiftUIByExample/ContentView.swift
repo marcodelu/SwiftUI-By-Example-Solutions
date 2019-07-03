@@ -9,16 +9,17 @@
 import SwiftUI
 
 struct ContentView : View {
-    static let taskDateFormat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter
-    }()
-
-    var dueDate = Date()
 
     var body: some View {
-        Text("Task due date: \(dueDate, formatter: Self.taskDateFormat)")
+//        guard let img = UIImage(named: "example-image") else {
+//            fatalError("Unable to load image")
+//        }
+//
+//        return Image(uiImage: img)
+
+        Image(systemName: "cloud.heavyrain.fill")
+            .foregroundColor(.red)
+            .font(.largeTitle)
     }
 }
 
