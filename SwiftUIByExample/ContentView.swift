@@ -11,13 +11,21 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-//        Rectangle()
-//            .fill(Color.red)
-//            .frame(width: 200, height: 200)
+//        Text("Hacking with Swift")
+//            .font(.largeTitle)
+//            .background(
+//                Image("example-image")
+//                    .resizable()
+//                    .frame(width: 100, height: 100)
+//            )
 
-        Circle()
-            .fill(Color.blue)
-            .frame(width: 50, height: 50)
+        Text("Hacking with Swift")
+            .font(.largeTitle)
+            .background(Circle()
+                .fill(Color.red)
+                .frame(width: 200, height: 200)
+            )
+                .clipped()
     }
 }
 
