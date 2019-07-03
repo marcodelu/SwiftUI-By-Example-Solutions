@@ -9,17 +9,23 @@
 import SwiftUI
 
 struct ContentView : View {
-    var colors = ["Red", "Green", "Blue", "Tartan"]
-    @State private var selectedColor = 0
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }
+
+    @State var birthDate = Date()
 
     var body: some View {
         VStack {
-            Picker(selection: $selectedColor, label: Text("Please choose a color")) {
-                ForEach(0 ..< colors.count) {
-                    Text(self.colors[$0]).tag($0)
-                }
-            }
-            Text("You selected: \(colors[selectedColor])")
+            DatePicker(
+                $birthDate,
+                maximumDate: Date(),
+                displayedComponents: .date
+            )
+
+            Text("Date is \(birthDate, formatter: dateFormatter)")
         }
     }
 }
