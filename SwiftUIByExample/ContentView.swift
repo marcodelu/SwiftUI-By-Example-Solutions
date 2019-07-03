@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State private var password: String = ""
+    @State var celsius: Double = 0
 
     var body: some View {
         VStack {
-            SecureField("Enter a password", text: $password)
-            Text("You entered: \(password)")
+            Slider(value: $celsius, from: -100, through: 100, by: 0.1)
+            Text("\(celsius) Celsius is \(celsius * 9 / 5 + 32) Fahrenheit")
         }
     }
 }
