@@ -9,21 +9,12 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var showDetails = false
+    @State var name: String = "Tim"
 
     var body: some View {
         VStack {
-            Button(action: {
-                self.showDetails.toggle()
-            }) {
-                Text("Show details")
-            }
-
-            if showDetails {
-                Text("You should follow me on Twitter: @twostraws")
-                    .font(.largeTitle)
-                    .lineLimit(nil)
-            }
+            TextField("Enter your name", text: $name)
+            Text("Hello, \(name)!")
         }
     }
 }
