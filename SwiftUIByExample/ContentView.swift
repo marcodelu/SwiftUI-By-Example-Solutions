@@ -10,12 +10,13 @@ import SwiftUI
 
 struct ContentView : View {
     var body: some View {
-//        Text("Hello World")
-//            .lineLimit(3)
-//        Text("Hello World")
-//            .lineLimit(nil)
         Text("This is an extremely long string that will never fit even the widest of Phones")
-            .truncationMode(.middle)
+            .lineLimit(nil)
+            .font(.largeTitle)
+            .multilineTextAlignment(.center)
+            .foregroundColor(Color.red)
+            .background(Color.yellow)
+            .lineSpacing(50)
     }
 }
 
