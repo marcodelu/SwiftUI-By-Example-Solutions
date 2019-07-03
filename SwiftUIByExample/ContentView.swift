@@ -11,10 +11,11 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack {
             Text("SwiftUI")
-            Divider()
+                .padding(.bottom, 100)
             Text("rocks")
+                .padding()
         }
     }
 }
