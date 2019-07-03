@@ -9,16 +9,20 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var showGreeting = true
+    @State var showDetails = false
 
     var body: some View {
         VStack {
-            Toggle(isOn: $showGreeting) {
-                Text("Show welcome message")
-            }.padding()
+            Button(action: {
+                self.showDetails.toggle()
+            }) {
+                Text("Show details")
+            }
 
-            if showGreeting {
-                Text("Hello World!")
+            if showDetails {
+                Text("You should follow me on Twitter: @twostraws")
+                    .font(.largeTitle)
+                    .lineLimit(nil)
             }
         }
     }
