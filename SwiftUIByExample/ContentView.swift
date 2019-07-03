@@ -11,11 +11,13 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-        Text("Hello World")
-            .padding()
-            .foregroundColor(.white)
-//            .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .top, endPoint: .bottom), cornerRadius: 0)
-            .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .leading, endPoint: .trailing), cornerRadius: 0)
+//        Rectangle()
+//            .fill(Color.red)
+//            .frame(width: 200, height: 200)
+
+        Circle()
+            .fill(Color.blue)
+            .frame(width: 50, height: 50)
     }
 }
 
