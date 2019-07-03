@@ -9,14 +9,12 @@
 import SwiftUI
 
 struct ContentView : View {
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
 
     var body: some View {
-        if horizontalSizeClass == .compact {
-            return Text("Compact")
-        } else {
-            return Text("Regular")
-        }
+        Text("Hello World")
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(Color.red)
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
