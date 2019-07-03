@@ -9,14 +9,12 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var name: String = "Tim"
+    @State var emailAddress = ""
 
     var body: some View {
-        VStack {
-            TextField("Enter your name", text: $name)
-                .textFieldStyle(.roundedBorder)
-            Text("Hello, \(name)!")
-        }
+        TextField("johnnyappleseed@apple.com", text: $emailAddress)
+            .textFieldStyle(.roundedBorder)
+            .padding()
     }
 }
 
