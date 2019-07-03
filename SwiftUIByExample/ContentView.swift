@@ -9,12 +9,18 @@
 import SwiftUI
 
 struct ContentView : View {
+    @State var showGreeting = true
 
     var body: some View {
-        Text("Hello World")
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .background(Color.red)
-            .edgesIgnoringSafeArea(.all)
+        VStack {
+            Toggle(isOn: $showGreeting) {
+                Text("Show welcome message")
+            }.padding()
+
+            if showGreeting {
+                Text("Hello World!")
+            }
+        }
     }
 }
 
