@@ -11,14 +11,12 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-        ZStack(alignment: .center) {
-            Image("example-image")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-            Text("Hacking with Swift")
-                .font(.largeTitle)
-                .background(Color.black)
-                .foregroundColor(.white)
+        Group {
+            if Bool.random() {
+                Image("example-image")
+            } else {
+                Text("Better luck next time")
+            }
         }
     }
 }
