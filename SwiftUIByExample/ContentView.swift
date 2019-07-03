@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct ContentView : View {
+    static let taskDateFormat: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter
+    }()
+
+    var dueDate = Date()
+
     var body: some View {
-        Text("This is an extremely long string that will never fit even the widest of Phones")
-            .lineLimit(nil)
-            .font(.largeTitle)
-            .multilineTextAlignment(.center)
-            .foregroundColor(Color.red)
-            .background(Color.yellow)
-            .lineSpacing(50)
+        Text("Task due date: \(dueDate, formatter: Self.taskDateFormat)")
     }
 }
 
