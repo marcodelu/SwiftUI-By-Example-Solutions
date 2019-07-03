@@ -11,15 +11,9 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-//        guard let img = UIImage(named: "example-image") else {
-//            fatalError("Unable to load image")
-//        }
-//
-//        return Image(uiImage: img)
-
-        Image(systemName: "cloud.heavyrain.fill")
-            .foregroundColor(.red)
-            .font(.largeTitle)
+        Image("example-image")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
     }
 }
 
