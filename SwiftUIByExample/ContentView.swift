@@ -14,13 +14,20 @@ struct ContentView : View {
 
     var body: some View {
         VStack {
-            SegmentedControl(selection: $favoriteColor) {
-                ForEach(0..<colors.count) { index in
-                    Text(self.colors[index]).tag(index)
-                }
+            Text("Tap me!")
+                .tapAction {
+                    print("Tapped!")
             }
 
-            Text("Value: \(colors[favoriteColor])")
+            Image("example-image")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .tapAction(count: 2) {
+                    print("Double tapped!")
+            }
+
+            // How to make print() work
+            // right-click on the play button in the preview canvas and choose “Debug Preview”
         }
     }
 }
