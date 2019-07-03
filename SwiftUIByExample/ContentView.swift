@@ -11,9 +11,11 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-        Image("example-image")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+        Text("Hello World")
+            .padding()
+            .foregroundColor(.white)
+//            .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .top, endPoint: .bottom), cornerRadius: 0)
+            .background(LinearGradient(gradient: Gradient(colors: [.white, .red, .black]), startPoint: .leading, endPoint: .trailing), cornerRadius: 0)
     }
 }
 
