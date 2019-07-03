@@ -9,26 +9,32 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State private var favoriteColor = 0
-    var colors = ["Red", "Green", "Blue"]
+    @State private var scale: Length = 1.0
 
     var body: some View {
-        VStack {
-            Text("Tap me!")
-                .tapAction {
-                    print("Tapped!")
-            }
+        Image("example-image")
+            .scaleEffect(scale)
 
-            Image("example-image")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .tapAction(count: 2) {
-                    print("Double tapped!")
-            }
-
-            // How to make print() work
-            // right-click on the play button in the preview canvas and choose “Debug Preview”
-        }
+            .gesture(
+                TapGesture()
+                    .onEnded { _ in
+                        self.scale += 0.1
+                }
+            )
+            .gesture(
+                LongPressGesture(minimumDuration: 2)
+                    .onEnded { _ in
+                        print("Pressed!")
+                        self.scale -= 0.1
+                }
+            )
+            .gesture(
+                DragGesture(minimumDistance: 50)
+                    .onEnded { _ in
+                        print("Dragged!")
+                        self.scale = 1.0
+                }
+            )
     }
 }
 
