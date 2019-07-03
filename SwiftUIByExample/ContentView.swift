@@ -7,29 +7,29 @@
 //
 
 import SwiftUI
+import Combine
 
-struct ContentView : View {
-    var body: some View {
-        NavigationView {
-            NavigationLink(destination: DetailView()) {
-                Text("Hello World")
-            }
-        }.onAppear {
-            print("ContentView appeared!")
-        }.onDisappear {
-            print("ContentView disappeared!")
+class UserSettings: BindableObject {
+    var didChange = PassthroughSubject<Void, Never>()
+
+    var score = 0 {
+        didSet {
+            didChange.send(())
         }
     }
 }
 
-struct DetailView : View {
+struct ContentView : View {
+    @ObjectBinding var settings = UserSettings()
+
     var body: some View {
         VStack {
-            Text("Second View")
-        }.onAppear {
-            print("DetailView appeared!")
-        }.onDisappear {
-            print("DetailView disappeared!")
+            Text("Your score is \(settings.score)")
+            Button(action: {
+                self.settings.score += 1
+            }) {
+                Text("Increase Score")
+            }
         }
     }
 }
