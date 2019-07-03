@@ -11,13 +11,9 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-//        VStack {
-//            Text("SwiftUI")
-//            Text("rocks")
-//        }
-
-        HStack {
+        VStack(alignment: .leading, spacing: 20) {
             Text("SwiftUI")
+            Divider()
             Text("rocks")
         }
     }
