@@ -8,37 +8,14 @@
 
 import SwiftUI
 
-struct Result {
-    var id = UUID()
-    var score: Int
-}
-
 struct ContentView : View {
-//    let colors: [Color] = [.red, .green, .blue]
-
-    let results = [Result(score: 8), Result(score: 5), Result(score: 10)]
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
 
     var body: some View {
-//        VStack(alignment: .leading) {
-//            ForEach((1...10).reversed()) {
-//                Text("\($0)…")
-//            }
-//
-//            Text("Ready or not, here I come!")
-//        }
-
-//        VStack {
-//            ForEach(colors.identified(by: \.self)) { color in
-//                Text(color.description.capitalized)
-//                    .padding(20)
-//                    .background(color)
-//            }
-//        }
-
-        VStack {
-            ForEach(results.identified(by: \.id)) { result in
-                Text("Result: \(result.score)")
-            }
+        if horizontalSizeClass == .compact {
+            return Text("Compact")
+        } else {
+            return Text("Regular")
         }
     }
 }
