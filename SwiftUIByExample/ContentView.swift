@@ -9,25 +9,16 @@
 import SwiftUI
 
 struct ContentView : View {
+    @State var showingAlert = false
 
     var body: some View {
-        VStack {
-            Group {
-                Text("Line1")
-                Text("Line")
-                Text("Line")
-                Text("Line")
-                Text("Line")
-                Text("Line")
-            }
-
-            Group {
-                Text("Line")
-                Text("Line")
-                Text("Line")
-                Text("Line")
-                Text("Line11")
-            }
+        Button(action: {
+            self.showingAlert = true
+        }) {
+            Text("Show Alert")
+        }
+        .presentation($showingAlert) {
+            Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
         }
     }
 }
