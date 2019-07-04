@@ -11,15 +11,23 @@ import SwiftUI
 struct ContentView : View {
 
     var body: some View {
-        NavigationView {
-            Text("SwiftUI")
-                .navigationBarTitle(Text("Welcome"))
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        print("Help tapped!")
-                    }) {
-                        Text("Help")
-                })
+        VStack {
+            Group {
+                Text("Line1")
+                Text("Line")
+                Text("Line")
+                Text("Line")
+                Text("Line")
+                Text("Line")
+            }
+
+            Group {
+                Text("Line")
+                Text("Line")
+                Text("Line")
+                Text("Line")
+                Text("Line11")
+            }
         }
     }
 }
