@@ -9,26 +9,22 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var agreedToTerms = false
+    @State var showingAdvancedOptions = false
+    @State var enableLogging = false
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    Toggle(isOn: $agreedToTerms) {
-                        Text("Agree to terms and conditions")
+        Form {
+            Section {
+                Toggle(isOn: $showingAdvancedOptions.animation()) {
+                    Text("Show advanced options")
+                }
+
+                if showingAdvancedOptions {
+                    Toggle(isOn: $enableLogging) {
+                        Text("Enable logging")
                     }
                 }
-
-                Section {
-                    Button(action: {
-                        // show next screen here
-                    }) {
-                        Text("Continue")
-                    }.disabled(!agreedToTerms)
-                }
-            }.navigationBarTitle(Text("Welcome"))
-
+            }
         }
     }
 }
