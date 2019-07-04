@@ -17,14 +17,20 @@ struct ContentView : View {
                 ForEach(users.identified(by: \.self)) { user in
                     Text(user)
                 }
-                .onDelete(perform: delete)
+                .onMove(perform: move)
             }
+            .navigationBarItems(trailing: EditButton())
         }
     }
 
-    func delete(at offsets: IndexSet) {
-        if let first = offsets.first {
-            users.remove(at: first)
+    func move(from source: IndexSet, to destination: Int) {
+        // sort the indexes low to high
+        let reversedSource = source.sorted()
+
+        // then loop from the back to avoid reordering problems
+        for index in reversedSource.reversed() {
+            // for each item, remove it and insert it at the destination
+            users.insert(users.remove(at: index), at: destination)
         }
     }
 }
