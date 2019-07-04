@@ -12,8 +12,14 @@ struct ContentView : View {
 
     var body: some View {
         NavigationView {
-            Text("This is a great app")
+            Text("SwiftUI")
                 .navigationBarTitle(Text("Welcome"))
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        print("Help tapped!")
+                    }) {
+                        Text("Help")
+                })
         }
     }
 }
