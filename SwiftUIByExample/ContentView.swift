@@ -8,21 +8,21 @@
 
 import SwiftUI
 
-struct ExampleRow: View {
-    var body: some View {
-        Text("Example Row")
-    }
+struct User: Identifiable {
+    var id = UUID()
+    var username = "Anonymous"
 }
 
 struct ContentView : View {
+    let users = [User(), User(), User()]
+
     var body: some View {
-        List {
-            Section(header: Text("Examples")) {
-                ExampleRow()
-                ExampleRow()
-                ExampleRow()
-            }
-        }.listStyle(.grouped)
+        List(users) { user in
+            Image(systemName: "person.fill")
+                .resizable()
+                .frame(width: 40, height: 40)
+            Text(user.username)
+        }
     }
 }
 
