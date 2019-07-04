@@ -8,24 +8,32 @@
 
 import SwiftUI
 
-struct ContentView : View {
-    @State var users = ["Paul", "Taylor", "Adele"]
-
+struct TaskRow: View {
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(users.identified(by: \.self)) { user in
-                    Text(user)
-                }
-                .onDelete(perform: delete)
-            }
-            .navigationBarItems(trailing: EditButton())
-        }
+        Text("Task data goes here")
     }
+}
 
-    func delete(at offsets: IndexSet) {
-        if let first = offsets.first {
-            users.remove(at: first)
+struct ContentView : View {
+    var body: some View {
+        List {
+            Section(header: Text("Important tasks")) {
+                TaskRow()
+                TaskRow()
+                TaskRow()
+            }
+
+            Section(header: Text("Other tasks")) {
+                TaskRow()
+                TaskRow()
+                TaskRow()
+            }
+
+            Section(header: Text("Other tasks"), footer: Text("End")) {
+                TaskRow()
+                TaskRow()
+                TaskRow()
+            }
         }
     }
 }
