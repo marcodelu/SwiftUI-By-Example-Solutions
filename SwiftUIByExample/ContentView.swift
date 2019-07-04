@@ -8,22 +8,31 @@
 
 import SwiftUI
 
-struct RestaurantRow: View {
+struct Restaurant: Identifiable {
+    var id = UUID()
     var name: String
+}
+
+struct RestaurantRow: View {
+    var restaurant: Restaurant
 
     var body: some View {
-        Text("Restaurant: \(name)")
+        Text("Come and eat at \(restaurant.name)")
     }
 }
 
-struct ContentView : View {
-
+struct ContentView: View {
     var body: some View {
-        List {
-            RestaurantRow(name: "Joe's Original")
-            RestaurantRow(name: "The Real Joe's Original")
-            RestaurantRow(name: "Original Joe's")
-        }
+        let first = Restaurant(name: "Joe's Original")
+        let second = Restaurant(name: "The Real Joe's Original")
+        let third = Restaurant(name: "Original Joe's")
+        let restaurants = [first, second, third]
+
+//        return List(restaurants) { restaurant in
+//            RestaurantRow(restaurant: restaurant)
+//        }
+
+        return List(restaurants, rowContent: RestaurantRow.init)
     }
 }
 
