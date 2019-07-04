@@ -8,31 +8,24 @@
 
 import SwiftUI
 
-struct Restaurant: Identifiable {
-    var id = UUID()
-    var name: String
-}
-
-struct RestaurantRow: View {
-    var restaurant: Restaurant
+struct ContentView : View {
+    @State var users = ["Paul", "Taylor", "Adele"]
 
     var body: some View {
-        Text("Come and eat at \(restaurant.name)")
+        NavigationView {
+            List {
+                ForEach(users.identified(by: \.self)) { user in
+                    Text(user)
+                }
+                .onDelete(perform: delete)
+            }
+        }
     }
-}
 
-struct ContentView: View {
-    var body: some View {
-        let first = Restaurant(name: "Joe's Original")
-        let second = Restaurant(name: "The Real Joe's Original")
-        let third = Restaurant(name: "Original Joe's")
-        let restaurants = [first, second, third]
-
-//        return List(restaurants) { restaurant in
-//            RestaurantRow(restaurant: restaurant)
-//        }
-
-        return List(restaurants, rowContent: RestaurantRow.init)
+    func delete(at offsets: IndexSet) {
+        if let first = offsets.first {
+            users.remove(at: first)
+        }
     }
 }
 
