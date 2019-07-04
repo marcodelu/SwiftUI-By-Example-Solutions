@@ -9,23 +9,25 @@
 import SwiftUI
 
 struct ContentView : View {
-    var strengths = ["Mild", "Medium", "Mature"]
-
-    @State var selectedStrength = 0
+    @State var agreedToTerms = false
 
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    Picker(selection: $selectedStrength, label: Text("Strength")) {
-                        ForEach(0 ..< strengths.count) {
-                            Text(self.strengths[$0]).tag($0)
-
-                        }
+                    Toggle(isOn: $agreedToTerms) {
+                        Text("Agree to terms and conditions")
                     }
-//                        .pickerStyle(.wheel)
                 }
-            }.navigationBarTitle(Text("Select your cheese"))
+
+                Section {
+                    Button(action: {
+                        // show next screen here
+                    }) {
+                        Text("Continue")
+                    }.disabled(!agreedToTerms)
+                }
+            }.navigationBarTitle(Text("Welcome"))
 
         }
     }
