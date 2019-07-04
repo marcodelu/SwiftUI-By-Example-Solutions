@@ -9,22 +9,11 @@
 import SwiftUI
 
 struct ContentView : View {
-    @State var showingAdvancedOptions = false
-    @State var enableLogging = false
 
     var body: some View {
-        Form {
-            Section {
-                Toggle(isOn: $showingAdvancedOptions.animation()) {
-                    Text("Show advanced options")
-                }
-
-                if showingAdvancedOptions {
-                    Toggle(isOn: $enableLogging) {
-                        Text("Enable logging")
-                    }
-                }
-            }
+        NavigationView {
+            Text("This is a great app")
+                .navigationBarTitle(Text("Welcome"))
         }
     }
 }
