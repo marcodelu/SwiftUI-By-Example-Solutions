@@ -8,33 +8,21 @@
 
 import SwiftUI
 
-struct TaskRow: View {
+struct ExampleRow: View {
     var body: some View {
-        Text("Task data goes here")
+        Text("Example Row")
     }
 }
 
 struct ContentView : View {
     var body: some View {
         List {
-            Section(header: Text("Important tasks")) {
-                TaskRow()
-                TaskRow()
-                TaskRow()
+            Section(header: Text("Examples")) {
+                ExampleRow()
+                ExampleRow()
+                ExampleRow()
             }
-
-            Section(header: Text("Other tasks")) {
-                TaskRow()
-                TaskRow()
-                TaskRow()
-            }
-
-            Section(header: Text("Other tasks"), footer: Text("End")) {
-                TaskRow()
-                TaskRow()
-                TaskRow()
-            }
-        }
+        }.listStyle(.grouped)
     }
 }
 
